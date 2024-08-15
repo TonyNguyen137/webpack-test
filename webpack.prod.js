@@ -1,6 +1,7 @@
 const path = require('node:path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 module.exports = {
   mode: 'production',
@@ -21,7 +22,9 @@ module.exports = {
       //generates html from template
       template: './src/index.html',
       filename: '[name].html',
+      inlineSource: '.(js|scss)$',
     }),
+    new HtmlWebpackInlineSourcePlugin(),
   ],
   module: {
     rules: [
@@ -32,7 +35,7 @@ module.exports = {
       {
         test: /\.scss$/i,
         use: [
-          'style-loader', // 3. extract css into files
+          MiniCssExtractPlugin.loader, // 3. seperates CSS
           'css-loader', // 2. Turns css into commonjs
           'sass-loader', // 1. Turns sass into css
         ],
