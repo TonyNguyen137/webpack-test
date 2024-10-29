@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- relative path to favicon source file -->
+    <link href="./favicon.ico" rel="icon" />
+    <!-- relative path to SCSS source file -->
+    <link href="./non-critical.scss" rel="stylesheet" />
+     <!-- use `?inline` query to inline CSS compiled from source SCSS file -->
+     <link href="./critical.scss?inline" rel="stylesheet" />
+    <!-- relative path to JS source file -->
+    <script src="./index.js" defer="defer"></script>
   </head>
   <body>
     <h1>Internal CSS</h1>
