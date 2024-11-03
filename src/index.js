@@ -1,2 +1,1 @@
-import './critical.scss';
-import './non-critical.scss';
+console.log('>> index.js');
